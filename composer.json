@@ -1,0 +1,17 @@
+{
+    "name": "dorsone/laravel-service",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Dorsone\\LaravelService\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Dorsone",
+            "email": "jasur.coder@gmail.com"
+        }
+    ],
+    "require": {}
+}
