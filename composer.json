@@ -1,5 +1,5 @@
 {
-    "name": "dorsone/laravel-service",
+    "name": "dorsone/laravel-service-generator",
     "type": "library",
     "license": "MIT",
     "description": "With this library, you can generate Services and automatically connect them to Controllers",
