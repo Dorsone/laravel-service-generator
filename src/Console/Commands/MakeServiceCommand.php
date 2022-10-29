@@ -32,7 +32,7 @@ class MakeServiceCommand extends ServiceGenerator
 
     public function handle()
     {
-//        parent::handle();
+        parent::handle();
         $this->generateService();
     }
 }
