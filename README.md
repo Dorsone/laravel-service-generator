@@ -1,5 +1,5 @@
 # Laravel artisan command for creating and linking services
-This library adds to your project functionality that can be generate a services
+With this library, you can generate Services and automatically connect them to Controllers
 
 ### Installation
 
