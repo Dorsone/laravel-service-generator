@@ -1,4 +1,6 @@
 # Laravel Artisan Command For Creating and Linking Service
+This library adds to your project functionality that can be generate a services
+
 ### Installation
 
 Add following code to your ```composer.json```
