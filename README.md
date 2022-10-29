@@ -8,7 +8,7 @@ composer require dorsone/laravel-service
 ```
 
 Finally
-Add following code to your ```config/app.php``` file ProvidersSection
+Add following code to your ```config/app.php``` file to providers section
 ```php
 \Dorsone\LaravelService\Providers\ServiceGeneratorProvider::class
 ```
