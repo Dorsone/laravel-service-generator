@@ -2,6 +2,7 @@
     "name": "dorsone/laravel-service",
     "type": "library",
     "license": "MIT",
+    "description": "With this library, you can generate Services and automatically connect them to Controllers",
     "autoload": {
         "psr-4": {
             "Dorsone\\LaravelService\\": "src/"
@@ -18,6 +19,5 @@
         }
     ],
     "require": {
-
     }
 }
