@@ -14,9 +14,8 @@ Add following code to your ```composer.json```
 ```
 
 Next step
-```
+```console
 composer require dorsone/laravel-service
-composer dump-autoload
 ```
 
 Finally
@@ -27,6 +26,6 @@ Add following code to your ```config/app.php``` file ProvidersSection
 
 Create your first service!
 
-```
+```console
 php artisan make:service TestService --controller=TestController
 ```
