@@ -61,9 +61,13 @@ class ServiceGenerator extends GeneratorCommand
         if (!$controllerIsNotCreated) {
             $controller = $this->getControllerFile();
             $controller = $this->ifConstructExist($controller);
+            if (is_int($controller))
+            {
+                return $controller;
+            }
             $controller = $this->ifConstructEmpty($controller);
             file_put_contents($this->getControllerPath(), $controller);
-            $this->components->info("Service linked in ".$this->getControllerName());
+            $this->components->info("Service linked in " . $this->getControllerName());
         } else {
             return CommandAlias::FAILURE;
         }
@@ -97,13 +101,15 @@ class ServiceGenerator extends GeneratorCommand
 
     private function createConstruct($code): string
     {
-        return "\tpublic \\".$this->getServiceNamespace()." \$".$this->getServiceName().";"
-        . PHP_EOL . PHP_EOL . "\tpublic function __construct(\\".$this->getServiceNamespace()." \$".$this->getServiceName().")"
-        . PHP_EOL . "\t{" . PHP_EOL . "\t\t\$this->".$this->getServiceName()." = \$".$this->getServiceName().";"
-        . PHP_EOL . "\t}" . PHP_EOL . PHP_EOL . $code;
+        return "\tpublic \\" . $this->getServiceNamespace() . " \$" . $this->getServiceName() . ";"
+            . PHP_EOL . PHP_EOL . "\tpublic function __construct(\\" . $this->getServiceNamespace(
+            ) . " \$" . $this->getServiceName() . ")"
+            . PHP_EOL . "\t{" . PHP_EOL . "\t\t\$this->" . $this->getServiceName() . " = \$" . $this->getServiceName(
+            ) . ";"
+            . PHP_EOL . "\t}" . PHP_EOL . PHP_EOL . $code;
     }
 
-    private function ifConstructExist(array $file): array
+    private function ifConstructExist(array $file): int|array
     {
         foreach ($file as $line => &$code) {
             if (preg_match("/^(\s+|)public\s+function\s+__construct\(/", $code)) {
@@ -113,7 +119,8 @@ class ServiceGenerator extends GeneratorCommand
                         ) . " \$" . $this->getServiceName() . ")";
                 } else {
                     if (str_contains(implode("", $file), $this->getServiceNamespace())) {
-                        $this->components->error("Service already linked in " . $this->getControllerName());
+                        $this->components->warn("Service already linked in " . $this->getControllerName());
+                        return CommandAlias::SUCCESS;
                     }
                     $code = preg_replace(
                         "/\)/",
