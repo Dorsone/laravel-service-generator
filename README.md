@@ -22,3 +22,9 @@ Add following code to your ```config/app.php``` file ProvidersSection
 ```php
 \Dorsone\LaravelService\Providers\ServiceGeneratorProvider::class
 ```
+
+Create your first service!
+
+```
+php artisan make:service TestService --controller=TestController
+```
