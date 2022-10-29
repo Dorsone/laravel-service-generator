@@ -18,7 +18,7 @@ composer dump-autoload
 ```
 
 Finally
-Add following code to your config/app.php file ProvidersSection
+Add following code to your ```config/app.php``` file ProvidersSection
 ```php
 \Dorsone\LaravelService\Providers\ServiceGeneratorProvider::class
 ```
