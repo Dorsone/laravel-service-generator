@@ -3,17 +3,6 @@ With this library, you can generate Services and automatically connect them to C
 
 ### Installation
 
-Add following code to your ```composer.json```
-```json
-"repositories": [
-    {
-        "type": "vcs",
-        "url": "https://github.com/dorsone/laravel-service"
-    }
-]
-```
-
-Next step
 ```console
 composer require dorsone/laravel-service
 ```
