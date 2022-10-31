@@ -1,25 +1,14 @@
 # Laravel artisan command for creating and linking services
-This library adds to your project functionality that can be generate a services
+With this library, you can generate Services and automatically connect them to Controllers
 
 ### Installation
 
-Add following code to your ```composer.json```
-```json
-"repositories": [
-    {
-        "type": "vcs",
-        "url": "https://github.com/dorsone/laravel-service"
-    }
-]
-```
-
-Next step
 ```console
 composer require dorsone/laravel-service
 ```
 
 Finally
-Add following code to your ```config/app.php``` file ProvidersSection
+Add following code to your ```config/app.php``` file to providers section
 ```php
 \Dorsone\LaravelService\Providers\ServiceGeneratorProvider::class
 ```
