@@ -4,7 +4,7 @@ With this library, you can generate Services and automatically connect them to C
 ### Installation
 
 ```console
-composer require dorsone/laravel-service
+composer require dorsone/laravel-service-generator
 ```
 
 Finally
