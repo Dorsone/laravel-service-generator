@@ -4,13 +4,7 @@ With this library, you can generate Services and automatically connect them to C
 ### Installation
 
 ```console
-composer require dorsone/laravel-service
-```
-
-Finally
-Add following code to your ```config/app.php``` file to providers section
-```php
-\Dorsone\LaravelService\Providers\ServiceGeneratorProvider::class
+composer require dorsone/laravel-service-generator
 ```
 
 Create your first service!
