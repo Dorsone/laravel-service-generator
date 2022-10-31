@@ -1,5 +1,5 @@
 {
-    "name": "dorsone/laravel-service",
+    "name": "dorsone/laravel-service-generator",
     "type": "library",
     "license": "MIT",
     "autoload": {
