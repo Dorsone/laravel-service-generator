@@ -5,10 +5,12 @@ namespace Dorsone\LaravelService;
 use Illuminate\Console\GeneratorCommand;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Str;
-use Symfony\Component\Console\Command\Command as CommandAlias;
 
 class ServiceGenerator extends GeneratorCommand
 {
+
+    const SUCCESS = 0;
+    const FAILURE = 1;
 
     private bool $isConstructFound = false;
 
@@ -61,19 +63,18 @@ class ServiceGenerator extends GeneratorCommand
         if (!$controllerIsNotCreated) {
             $controller = $this->getControllerFile();
             $controller = $this->ifConstructExist($controller);
-            if (is_int($controller))
-            {
+            if (is_int($controller)) {
                 return $controller;
             }
             $controller = $this->ifConstructEmpty($controller);
             file_put_contents($this->getControllerPath(), $controller);
             $this->components->info("Service linked in " . $this->getControllerName());
         } else {
-            return CommandAlias::FAILURE;
+            return self::FAILURE;
         }
 
 
-        return CommandAlias::SUCCESS;
+        return self::SUCCESS;
     }
 
     public function ifConstructEmpty(array $file): array
@@ -120,7 +121,7 @@ class ServiceGenerator extends GeneratorCommand
                 } else {
                     if (str_contains(implode("", $file), $this->getServiceNamespace())) {
                         $this->components->warn("Service already linked in " . $this->getControllerName());
-                        return CommandAlias::SUCCESS;
+                        return self::SUCCESS;
                     }
                     $code = preg_replace(
                         "/\)/",
@@ -147,12 +148,10 @@ class ServiceGenerator extends GeneratorCommand
             if ($isResponseStatusTrue) {
                 Artisan::call("make:controller " . $this->getControllerName());
                 $this->components->info("Created " . $this->getControllerName());
-            } else {
-                return CommandAlias::SUCCESS;
             }
         }
 
-        return CommandAlias::SUCCESS;
+        return self::SUCCESS;
     }
 
 
