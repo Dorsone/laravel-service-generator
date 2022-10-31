@@ -3,7 +3,6 @@
 namespace Dorsone\LaravelService\Console\Commands;
 
 use Dorsone\LaravelService\ServiceGenerator;
-use Illuminate\Filesystem\Filesystem;
 
 class MakeServiceCommand extends ServiceGenerator
 {
