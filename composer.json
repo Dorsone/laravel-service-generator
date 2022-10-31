@@ -19,5 +19,12 @@
         }
     ],
     "require": {
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Dorsone\\LaravelService\\Providers\\ServiceGeneratorProvider"
+            ]
+        }
     }
 }
